@@ -13,9 +13,6 @@ module Ripple
   class << self
     # @return [Riak::Client] The client for the current thread.
     def client
-      puts "------------"
-      puts client_config.inspect
-      puts "------------"
       Thread.current[:ripple_client] ||= Riak::Client.new(client_config)
     end
 
