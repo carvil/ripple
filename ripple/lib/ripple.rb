@@ -62,7 +62,9 @@ module Ripple
 
     private
     def client_config
-      config.slice(*Riak::Client::VALID_OPTIONS)
+      config = config.slice(*Riak::Client::VALID_OPTIONS)
+      puts config
+      config
     end
   end
 
