@@ -53,7 +53,7 @@ module Riak
 
     # @return [String] the URL (relative or absolute) of the related resource
     def url
-      @url ||= "/riak/#{escape(bucket)}" + (key.blank? ? "" : "/#{escape(key)}")
+      @url ||= "/riak/#{escape(bucket)}" + (key.blank? ? "" : "/#{key}")
     end
 
     def url=(value)
