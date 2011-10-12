@@ -13,7 +13,7 @@ module Ripple
   class << self
     # @return [Riak::Client] The client for the current thread.
     def client
-      Thread.current[:ripple_client] ||= Riak::Client.new(client_config)
+      Thread.current[:ripple_client] ||= Riak::Client.new(:protocol => "https")
     end
 
     # Sets the client for the current thread.
@@ -62,9 +62,7 @@ module Ripple
 
     private
     def client_config
-      config = config.slice(*Riak::Client::VALID_OPTIONS)
-      puts config
-      config
+      config.slice(*Riak::Client::VALID_OPTIONS)
     end
   end
 
